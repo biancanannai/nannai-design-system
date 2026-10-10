@@ -1,0 +1,86 @@
+:root{
+  /* ── Brand — personalidade da interface ── */
+  --color-brand-primary:#381416;      /* títulos, botão primário, selecionado */
+  --color-brand-primary-tone:#764141; /* hover, apoio */
+  --color-brand-sand:#CDA787;         /* comparações, detalhes */
+
+  /* ── Surface — leveza e organização ── */
+  --color-secondary-cream:#FAF6EB;    /* sidebar, áreas sutis */
+  --color-brand-white:#FFFFFF;        /* fundo principal, cards */
+  --color-line:#ECE6DA;               /* divisórias */
+  --color-brand-black:#222222;        /* texto principal */
+  --color-text-muted:#495D64;         /* texto secundário */
+
+  /* ── Data — 4 padrão + 3 extensão ── */
+  --color-data-545933:#545933;
+  --color-data-415062:#415062;
+  --color-data-97C0CE:#97C0CE;        /* extensão */
+  --color-data-D7B761:#D7B761;        /* extensão · também quadrado de acento */
+  --color-data-D194A5:#D194A5;        /* extensão */
+
+  /* ── Uso restrito ── */
+  --color-restricted-C8D268:#C8D268;  /* indicadores pontuais */
+  --color-restricted-DB8920:#DB8920;  /* alertas específicos */
+
+  /* Brief semantic tokens */
+  --color-background:#FFFFFF;
+  --color-surface:#FFFFFF;
+  --color-heading:#381416;
+  --color-text:#222222;
+  --color-accent:#CDA787;
+  --color-border:#ECE6DA;
+  --color-button-primary:#381416;
+  --color-button-text:#FFFFFF;
+
+  /* Surfaces */
+  --surface-page:#FFFFFF;     /* branco predomina */
+  --surface-card:#FFFFFF;
+  --surface-sunken:#FAF6EB;   /* creme: sidebar, áreas sutis */
+  --surface-block:#545933;     /* cartão estratégico, texto branco */
+  --surface-block-alt:#415062; /* cartão estratégico, texto branco */
+  --surface-inverse:#381416;   /* header / footer */
+  --accent-square:#D7B761;
+
+  /* Text — ≥ 4.5:1 on #FAF6EB and #FFFFFF */
+  --text-heading:#381416;
+  --text-body:#222222;
+  --text-muted:#495D64;
+  --text-placeholder:#7C8A8F;
+  --text-on-dark:#FFFFFF;
+  --text-on-dark-muted:rgba(255,255,255,.82);
+
+  /* Lines */
+  --border-subtle:#ECE6DA;
+  --border-strong:#CDA787;
+  --border-focus:#381416;
+  --border-error:#764141;
+
+  /* Action */
+  --action-bg:#381416;
+  --action-bg-hover:#764141;
+  --action-fg:#FFFFFF;
+  --state-hover-overlay:rgba(56,20,22,.05);
+  --focus-ring:0 0 0 3px rgba(56,20,22,.14);
+
+  /* Semantic — fundo suave + texto/ícone (contraste ≥ 5:1) */
+  --status-success-bg:#EDF1CF; --status-success-fg:#545933;  /* Ativo */
+  --status-warning-bg:#F2E8CC; --status-warning-fg:#6E613C;  /* Pendente */
+  --status-danger-bg:#F3E4E1;  --status-danger-fg:#764141;   /* Inativo */
+  --status-info-bg:#DEEBEF;    --status-info-fg:#415062;     /* Em análise */
+  --status-neutral-bg:#F1E6DD; --status-neutral-fg:#635548;  /* Rascunho */
+
+  /* Charts */
+  --chart-current:#381416;   /* período atual — sempre */
+  --chart-previous:#CDA787;  /* período anterior — sempre */
+  --chart-1:#381416;
+  --chart-2:#CDA787;
+  --chart-3:#545933;
+  --chart-4:#415062;
+  --chart-5:#97C0CE;  /* só com 5+ categorias */
+  --chart-6:#D7B761;
+  --chart-7:#D194A5;
+  --chart-positive:#545933;
+  --chart-grid:#ECE6DA;
+
+  --scrim:rgba(34,34,34,.4);
+}
