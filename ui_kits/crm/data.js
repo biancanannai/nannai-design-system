@@ -1,0 +1,26 @@
+window.CRM_DATA = {
+  months: ['Mai','Jun','Jul','Ago','Set','Out'],
+  revenue: [312, 348, 336, 402, 438, 483],
+  revenuePrev: [290, 301, 322, 341, 370, 396],
+  channels: [{ name: 'Boutique', value: 46 }, { name: 'E-commerce', value: 31 }, { name: 'Atendimento remoto', value: 15 }, { name: 'Eventos', value: 8 }],
+  activeClients: [1086, 1121, 1140, 1172, 1198, 1284],
+  activeClientsPrev: [1010, 1032, 1050, 1068, 1102, 1131],
+  segments: [{ name: 'VIP', value: 24 }, { name: 'Recorrentes', value: 41 }, { name: 'Novas', value: 22 }, { name: 'Inativas', value: 13 }],
+  cities: [{ name: 'São Paulo', value: 182 }, { name: 'Rio de Janeiro', value: 104 }, { name: 'Belo Horizonte', value: 71 }, { name: 'Curitiba', value: 48 }, { name: 'Porto Alegre', value: 37 }],
+  origin: { keys: ['Indicação', 'Instagram', 'Boutique', 'E-mail', 'Eventos', 'Site', 'Outros'], rows: [['Jul', [22, 20, 18, 14, 10, 9, 7]], ['Ago', [24, 22, 16, 13, 9, 10, 6]], ['Set', [21, 25, 17, 12, 11, 9, 5]], ['Out', [23, 27, 15, 12, 10, 8, 5]]] },
+  goal: { value: 1.21, target: 1.55, label: 'R$ 1,21 mi de R$ 1,55 mi' },
+  clients: [
+    { id: 1, name: 'Ana Ribeiro', email: 'ana.ribeiro@email.com', city: 'São Paulo', segment: 'VIP', status: 'success', statusLabel: 'Ativo', ltv: 'R$ 48.320', last: '02 out', owner: 'Marina' },
+    { id: 2, name: 'Beatriz Lacerda', email: 'bia.lacerda@email.com', city: 'Rio de Janeiro', segment: 'Recorrente', status: 'success', statusLabel: 'Ativo', ltv: 'R$ 21.940', last: '29 set', owner: 'Clara' },
+    { id: 3, name: 'Helena Prado', email: 'helena.prado@email.com', city: 'Belo Horizonte', segment: 'VIP', status: 'warning', statusLabel: 'Follow-up', ltv: 'R$ 36.110', last: '14 set', owner: 'Marina' },
+    { id: 4, name: 'Luísa Monteiro', email: 'luisa.m@email.com', city: 'Curitiba', segment: 'Novo', status: 'info', statusLabel: 'Em análise', ltv: 'R$ 3.480', last: '05 out', owner: 'Júlia' },
+    { id: 5, name: 'Carolina Assis', email: 'carol.assis@email.com', city: 'São Paulo', segment: 'Recorrente', status: 'danger', statusLabel: 'Inativo', ltv: 'R$ 12.760', last: '18 jun', owner: 'Clara' },
+    { id: 6, name: 'Isabela Fontes', email: 'isa.fontes@email.com', city: 'Porto Alegre', segment: 'Novo', status: 'success', statusLabel: 'Ativo', ltv: 'R$ 5.920', last: '01 out', owner: 'Júlia' },
+  ],
+  campaigns: [
+    { id: 1, name: 'Coleção Outono · Inverno', channel: 'E-mail + Boutique', status: 'success', statusLabel: 'Ativa', reach: '18.420', open: 42, conv: 4.8, revenue: 'R$ 126.300' },
+    { id: 2, name: 'Pré-venda Clientes VIP', channel: 'Atendimento remoto', status: 'success', statusLabel: 'Ativa', reach: '640', open: 71, conv: 12.4, revenue: 'R$ 94.870' },
+    { id: 3, name: 'Reativação 90 dias', channel: 'E-mail', status: 'warning', statusLabel: 'Agendada', reach: '2.180', open: 0, conv: 0, revenue: '—' },
+    { id: 4, name: 'Evento Ateliê Jardins', channel: 'Eventos', status: 'neutral', statusLabel: 'Encerrada', reach: '120', open: 88, conv: 21.0, revenue: 'R$ 58.200' },
+  ],
+};

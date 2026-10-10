@@ -1,0 +1,46 @@
+<!-- @dsCard group="CRM" viewport="1440x900" name="CRM dashboard" subtitle="Overview, clients, campaigns — click-through" -->
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>NANNAI · CRM</title><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="data.js"></script>
+<style>body{min-height:100vh}</style></head><body><div id="root"></div>
+<script type="text/babel" src="Sidebar.jsx"></script>
+<script type="text/babel" src="Topbar.jsx"></script>
+<script type="text/babel" src="Charts.jsx"></script>
+<script type="text/babel" src="Overview.jsx"></script>
+<script type="text/babel" src="Clients.jsx"></script>
+<script type="text/babel" src="ClientDrawer.jsx"></script>
+<script type="text/babel" src="Campaigns.jsx"></script>
+<script type="text/babel">
+const { Button, Icon, Toast, Select } = window.NANNAIDesignSystem_ea3e45;
+const TITLES = { overview: ['Outubro 2026', 'Visão geral'], clients: ['Carteira', 'Clientes'], campaigns: ['Marketing', 'Campanhas'] };
+function App() {
+  const [route, setRoute] = React.useState(localStorage.getItem('nn-crm-route') || 'overview');
+  const [client, setClient] = React.useState(null);
+  const [creating, setCreating] = React.useState(false);
+  const [toast, setToast] = React.useState(null);
+  React.useEffect(() => { localStorage.setItem('nn-crm-route', route); }, [route]);
+  React.useEffect(() => { if (!toast) return; const t = setTimeout(() => setToast(null), 3800); return () => clearTimeout(t); }, [toast]);
+  const [eyebrow, title] = TITLES[route];
+  const actions = route === 'overview' ? <Select size="sm" options={['Últimos 30 dias', 'Trimestre', 'Ano']} defaultValue="Últimos 30 dias" style={{ width: 170 }} />
+    : route === 'clients' ? <Button size="sm" iconLeft={<Icon name="plus" size={14} />} onClick={() => setToast({ title: 'Em breve', message: 'Cadastro de clientes nesta demonstração.', tone: 'info' })}>Nova cliente</Button>
+    : <Button size="sm" iconLeft={<Icon name="plus" size={14} />} onClick={() => setCreating(true)}>Nova campanha</Button>;
+  return (
+    <div style={{ display: 'flex', minHeight: '100vh' }}>
+      <Sidebar route={route} onNavigate={setRoute} />
+      <main style={{ flex: 1, minWidth: 0, maxWidth: 'calc(var(--content-max) + 96px)' }}>
+        <Topbar eyebrow={eyebrow} title={title} actions={actions} />
+        {route === 'overview' && <Overview onOpenClient={setClient} onNavigate={setRoute} />}
+        {route === 'clients' && <Clients onOpenClient={setClient} />}
+        {route === 'campaigns' && <Campaigns creating={creating} onCloseCreate={() => setCreating(false)} onCreated={() => { setCreating(false); setToast({ title: 'Campanha criada', message: 'Ela aparecerá como agendada.' }); }} />}
+      </main>
+      <ClientDrawer client={client} onClose={() => setClient(null)} onAction={a => { setClient(null); setToast(a === 'archive' ? { title: 'Cliente arquivada', message: client.name + ' foi movida para o arquivo.' } : { title: 'Visita agendada', message: 'Convite enviado para ' + client.name.split(' ')[0] + '.' }); }} />
+      {toast && <div style={{ position: 'fixed', right: 24, bottom: 24, zIndex: 200 }}><Toast tone={toast.tone} title={toast.title} message={toast.message} onClose={() => setToast(null)} /></div>}
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script></body></html>
