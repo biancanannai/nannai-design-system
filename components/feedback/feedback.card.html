@@ -1,0 +1,23 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Feedback" subtitle="Dialog, Toast, Tooltip" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:24px;background:var(--surface-page)}.lbl{font-size:11px;font-weight:600;color:var(--text-muted);letter-spacing:.12em;text-transform:uppercase}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { Dialog, Toast, Tooltip, Button, IconButton } = window.NANNAIDesignSystem_ea3e45;
+function Demo(){ return (<div style={{display:'grid',gridTemplateColumns:'minmax(0,1.15fr) minmax(0,1fr)',gap:20}}>
+<div style={{background:'var(--surface-sunken)',padding:20,display:'flex',flexDirection:'column',gap:12}}>
+<span className="lbl">Dialog</span>
+<Dialog inline width="100%" eyebrow="Confirmação" title="Arquivar cliente" onClose={()=>{}} footer={<><Button variant="secondary" size="sm">Cancelar</Button><Button size="sm">Arquivar</Button></>}>O histórico de compras será mantido.</Dialog>
+</div>
+<div style={{display:'flex',flexDirection:'column',gap:12}}>
+<span className="lbl" style={{paddingTop:20}}>Toast</span>
+<Toast width="100%" title="Cliente salva" message="Ana Ribeiro foi adicionada." onClose={()=>{}}/>
+<Toast width="100%" tone="info" title="Relatório em preparo"/>
+<span className="lbl" style={{marginTop:12}}>Tooltip</span>
+<div style={{display:'flex',gap:10,paddingTop:40}}><Tooltip content="Exportar CSV" open><IconButton icon="download" label="Exportar" variant="outline"/></Tooltip><IconButton icon="share-2" label="Compartilhar" variant="outline"/><IconButton icon="printer" label="Imprimir" variant="outline"/></div>
+</div></div>); }
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>
